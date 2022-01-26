@@ -30,6 +30,11 @@ Route::group(['middleware'=>'test'],function(){
 
     Route::get("/user",[Admin_all_Controller::class,'user'])->name("user");
     Route::get("/chef",[CheifController::class,'x'])->name("chef");
+    Route::post("/chef",[CheifController::class,'y'])->name("chef_Post");
+    Route::get("/chef/load",[CheifController::class,'z'])->name("load_chef");
+    Route::get("/chef/edit/{id}",[CheifController::class,'a'])->name("edit_chef");
+    Route::get("/chef/dlt/{id}",[CheifController::class,'c'])->name("dlt_chef");
+    Route::post("/chef/update",[CheifController::class,'b'])->name("update_chef");
     Route::get("/load",[Admin_all_Controller::class,'load'])->name("loader");
     Route::get('/dlt/{id}',[Admin_all_Controller::class,'dlt'])->name('dlt');
     Route::get('/edit/{id}',[FoodController::class,'edit'])->name('edt');

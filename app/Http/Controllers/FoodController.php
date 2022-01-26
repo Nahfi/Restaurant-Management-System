@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cheif;
 use App\Models\Food;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class FoodController extends Controller
     public function food(){
        
         $food=Food::all();
-        return view('home',compact('food'));
+        $ca=Cheif::all();
+        return view('home',compact('food','ca'));
         
     }
 

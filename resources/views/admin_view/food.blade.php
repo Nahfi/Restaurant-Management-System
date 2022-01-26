@@ -118,7 +118,7 @@
   
   @include('admin_view.js')
   
-  <!-- Modal -->
+  <!-- Modal  1-->
   <div class="modal fade" id="modi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -268,5 +268,5 @@
 
 
   <script src="{{ asset('/assets/js/script.js') }}"></script>
-  <script src="{{ asset('/assets/js/test.js') }}"></script>
+
 </html>
