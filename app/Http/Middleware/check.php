@@ -2,11 +2,12 @@
 
 namespace App\Http\Middleware;
 
+use App\Http\Controllers\FoodController;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class check
+class check 
 {
     /**
      * Handle an incoming request.
@@ -17,23 +18,21 @@ class check
      */
     public function handle(Request $request, Closure $next)
     {
-    
 
         if(Auth::user()){
 
-            if(Auth::user()->is_admin==1){
+           if(Auth::user()->is_admin==1){
                 
-                return response()->view('admin_view.admin');
+                return redirect('/check');
             }
-            else{
-                return response()->view('home');
-            }
-            
+      
+
+           
         }
-        else{
-            
-            return response()->view('home');
-        }
+       
+        return $next($request);
+
+        
       
     }
 }
