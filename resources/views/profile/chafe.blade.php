@@ -1,25 +1,3 @@
-{{-- @foreach ($ca as $b )
-                
-           
-<div class="col-lg-4">
-    <div class="chef-item">
-        <div class="thumb">
-            <div class="overlay"></div>
-            <ul class="social-icons">
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-            </ul>
-            <img src="{{ $b->photo }}" alt="Chef #1">
-        </div>
-        <div class="down-content">
-            <h4>{{ $b->name }}</h4>
-            <span>{{ $b->role }}</span>
-        </div>
-    </div>
-</div> --}}
-{{-- @endforeach --}}
-
 
     <!-- ***** Chefs Area Starts ***** -->
     <section class="section" id="chefs">

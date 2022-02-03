@@ -31,10 +31,39 @@
                           </div>
                         </div>
                     </div>
-                </div>
+                  
+                    {{-- <form id="cart"   action="{{ route('add_cart') }}" method="POST"   enctype="multipart/form-data">
+                        @csrf
+
                
-                @endforeach
+                         <input name="quantity" type="number" min="1" idm={{ $f->id }} value="1" id="c">
+                         <input type="text" value="{{ $f->id }}"  >
                 
+                         <button type="button" style="color: #000" class="btn btn-success">Add To Cart</button>
+
+                    </form> --}}
+
+                    <form action="{{ url('/add_to_cart') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        
+                        <input name="quantity" type="number" min="1"  value="1" id="c">
+                        <input  name="id" type="hidden" value="{{ $f->id }}"  >
+               
+                        <button type="submit" style="color: #000" class="btn btn-success">Add To Cart</button>
+                    </form>
+                </div>
+                @if (\Session::has('success'))
+                <div class="alert alert-success">
+                    <ul>
+                        <li>{!! \Session::get('success') !!}</li>
+                    </ul>
+                </div>
+                   @endif
+           
+          
+                @endforeach
+
+          
                
             </div>
         </div>

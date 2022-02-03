@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin_all_Controller;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\CheifController;
+use App\Http\Controllers\CartController;
 
 
 //user route
@@ -15,14 +16,24 @@ Route::group(['middleware'=>"check"],function(){
 Route::get('/',[FoodController::class,'food'])->name("all_food1");
     
    
-
+ 
 });
 
 //auth route
 Route::group(["middleware"=>'auth'],function(){
 
     Route::get('/check',[Is_Admin::class,"is_admin"]);
+    Route::group(['middleware'=>"check"],function(){
 
+        Route::post('/add_to_cart',[CartController::class,"add_cart"])->name("add_cart");
+        Route::get('/cart',[CartController::class,"ck"])->name("add_cart_c");
+        Route::get('/loap',[CartController::class,"loap"])->name("loap");
+        Route::get('/p/{fid}',[CartController::class,"edit"])->name("edit_cart");
+  
+            
+           
+         
+        });
 
 
 //admin route
@@ -43,6 +54,8 @@ Route::group(['middleware'=>'test'],function(){
     Route::get('/food/all',[FoodController::class,'all_food'])->name('all_food');
     Route::post('/food',[FoodController::class,'admin_food_insert'])->name('insert_food');
     Route::post('/food/update',[FoodController::class,'admin_food_update'])->name('update_food');
+    // Route::post('/add_to_cart',[CartController::class,"add_cart"])->name("add_cart");
+  
    
 
 });

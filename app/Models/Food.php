@@ -11,4 +11,14 @@ class Food extends Model
     protected $gaurded=[
 
     ];
+
+
+   
+    public function food_cart(){
+        return $this->hasMany(Cart::class);
+    }
+
+
+
+
 }

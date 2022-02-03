@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Cheif;
 use App\Models\Food;
 use Illuminate\Http\Request;
 
 class FoodController extends Controller
 {
-    //
+   
 
 
 
@@ -16,7 +17,14 @@ class FoodController extends Controller
        
         $food=Food::all();
         $ca=Cheif::all();
-        return view('home',compact('food','ca'));
+        if(auth()->user()){
+            $n=Cart::where('user_id','=',auth()->user()->id)->count();
+        }
+        else{
+            $n=0;
+        }
+    //   $n=0;
+        return view('home',compact('food','ca','n'));
         
     }
 

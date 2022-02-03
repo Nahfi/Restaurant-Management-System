@@ -2,6 +2,9 @@ $(function() {
     'use_strict'
 
 
+
+
+
     const create = zi => {
 
 
@@ -320,4 +323,9 @@ function url1(e) {
     document.getElementById('s1').src = URL.createObjectURL(this.files[0])
 
 
+}
+
+function c() {
+
+    alert("lol")
 }
