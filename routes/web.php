@@ -29,6 +29,7 @@ Route::group(["middleware"=>'auth'],function(){
         Route::get('/cart',[CartController::class,"ck"])->name("add_cart_c");
         Route::get('/loap',[CartController::class,"loap"])->name("loap");
         Route::get('/p/{fid}',[CartController::class,"edit"])->name("edit_cart");
+        Route::get('/order',[CartController::class,"order"])->name("order");
   
             
            
@@ -40,6 +41,7 @@ Route::group(["middleware"=>'auth'],function(){
 Route::group(['middleware'=>'test'],function(){
 
     Route::get("/user",[Admin_all_Controller::class,'user'])->name("user");
+    Route::get("/all/order",[Admin_all_Controller::class,'all_order'])->name("op");
     Route::get("/chef",[CheifController::class,'x'])->name("chef");
     Route::post("/chef",[CheifController::class,'y'])->name("chef_Post");
     Route::get("/chef/load",[CheifController::class,'z'])->name("load_chef");

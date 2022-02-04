@@ -4,12 +4,36 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Food;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class Admin_all_Controller extends Controller
 {
     
 
+   public function all_order(){
+     
+
+    $all=Order::all();
+
+    $c=array();
+    foreach($all as $a){
+
+
+
+         $c[]=[
+
+          'name'=>$a->user_info->name,
+          'food_name'=>$a->Food_info->title,
+            'quantity'=>$a->quantity,
+            'price'=>$a->quantity*$a->Food_info->price
+         ];
+
+
+    }
+   
+     return view('admin_view.order',compact('c'));
+   }
 
     public function user(){
         $user_Data=User::all();

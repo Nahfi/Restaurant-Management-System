@@ -16,19 +16,19 @@
 
 
       
-        @if (\Session::has('success'))
-    <div class="alert alert-success">
-        <ul>
-            <li>{!! \Session::get('success') !!}</li>
-        </ul>
-    </div>
-       @endif
+   
         <div class="row justify-content-center">
           <div class="col-lg-6 p-5 bg-white rounded shadow-sm mb-5">
             <div id="d" style="color:#000; font-size:24px">
         
             </div>
-    
+            @if (\Session::has('success'))
+            <div class="alert alert-success">
+                <ul>
+                    <li>{!! \Session::get('success') !!}</li>
+                </ul>
+            </div>
+               @endif
             <!-- Shopping cart table -->
             <div class="table-responsive">
               <table class="table">
@@ -88,7 +88,7 @@
                 <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
                   <h5 class="font-weight-bold"> {{ $total+10  }}</h5>
                 </li>
-              </ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
+              </ul><a href="{{ route('order') }}" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
             </div>
           </div>
         </div>

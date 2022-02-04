@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateCart extends Migration
+class CreateOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,12 @@ class UpdateCart extends Migration
      */
     public function up()
     {
-        
-
-        Schema::table('carts', function (Blueprint $table) {
-          
-
-            $table->after('food_id', function (Blueprint $table){
-
-                $table->integer("quantity");
-
-            });
-
+        Schema::create('orders', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('food_id');
+            $table->unsignedInteger('quantity');
+            $table->timestamps();
         });
     }
 
@@ -34,7 +29,6 @@ class UpdateCart extends Migration
      */
     public function down()
     {
-        //
-        Schema::dropColumns('quantity');
+        Schema::dropIfExists('orders');
     }
 }

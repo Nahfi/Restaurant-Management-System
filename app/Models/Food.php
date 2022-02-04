@@ -12,7 +12,9 @@ class Food extends Model
 
     ];
 
-
+    public function food_order_info(){
+        return $this->hasMany(Order::class);
+    }
    
     public function food_cart(){
         return $this->hasMany(Cart::class);

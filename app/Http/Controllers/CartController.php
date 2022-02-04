@@ -4,12 +4,63 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Food;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
 
 
+
+   
+
+public function order(){
+
+
+  
+
+   $all=Cart::where("user_id",'=',auth()->user()->id)->get();
+   Cart::where("user_id",'=',auth()->user()->id)->delete();
+   $x=new Order();
+   
+    $allv=array();
+   foreach($all as $p){
+
+
+      
+      $allv[]=[
+          
+         'uid'=>$p->user_id,
+         'fid'=>$p->food_id,
+         'q'=>$p->quantity,
+
+      ];
+ 
+    
+
+
+   }
+
+
+
+
+   foreach($allv as $r)
+   {
+       Order::insert([
+
+         'user_id'=>$r['uid'],
+         'food_id'=>$r['fid'],
+         'quantity'=>$r['q'],
+       ]);
+   }
+
+
+
+   return redirect()->back()->with('success',"order successfully added");
+
+
+
+}
 
    public function loap(){
 

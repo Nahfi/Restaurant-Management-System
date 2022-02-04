@@ -29,7 +29,11 @@ class User extends Authenticatable
         'password',
     ];
 
+ 
 
+    public function user_order_info(){
+        return $this->hasMany(Order::class);
+    }
 
     public function user_cart(){
         return $this->hasMany(Cart::class,'user_id','id');
